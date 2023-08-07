@@ -5,7 +5,7 @@ import 'package:lottie/lottie.dart';
 
 class LoadingScreen extends StatefulWidget {
   final double weight;
-  final double bcs;
+  final int bcs;
 
   const LoadingScreen({
     Key? key,
@@ -19,7 +19,7 @@ class LoadingScreen extends StatefulWidget {
 
 class _LoadingScreenState extends State<LoadingScreen> {
   double _calcIbw() {
-    return widget.weight * 100 / (100 + (widget.bcs - 5) * 10);
+    return widget.weight * (100 - widget.bcs) / 100;
   }
 
   @override
@@ -34,7 +34,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
           builder: (context) => ResultScreen(
             weight: widget.weight,
             bcs: widget.bcs,
-            ibw: ibw,
           ),
         ),
       );

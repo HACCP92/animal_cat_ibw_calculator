@@ -9,14 +9,15 @@ final router = GoRouter(
       builder: (context, state) => const MainScreen(),
     ),
     GoRoute(
-        path: '/main/result',
-        builder: (context, state) {
-          double weight = double.parse(state.queryParameters['weight']!);
-          double bcs = double.parse(state.queryParameters['bcs']!);
-          return LoadingScreen(
-            weight: weight,
-            bcs: bcs,
-          );
-        })
+      path: '/main/result',
+      builder: (context, state) {
+        double weight = double.parse(state.queryParameters['weight']!);
+        int bcs = int.parse(state.queryParameters['bcs']!);
+        return LoadingScreen(
+          weight: weight,
+          bcs: bcs,
+        );
+      },
+    ),
   ],
 );

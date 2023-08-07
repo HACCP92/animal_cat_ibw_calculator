@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 
 class ResultScreen extends StatelessWidget {
   final double weight;
-  final double bcs;
+  final int bcs;
 
   const ResultScreen({
     Key? key,
     required this.weight,
     required this.bcs,
-    required double ibw,
   }) : super(key: key);
 
   double _calcIbw() {
-    return weight * 100 / (100 + (bcs - 5) * 10);
+    return weight * (100 - bcs) / 80;
   }
 
   Image _buildImage(double ibw) {

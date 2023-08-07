@@ -19,6 +19,7 @@ class _MainScreenState extends State<MainScreen> {
     required String imageAsset,
     required String scoreText,
     required String scoreText2,
+    required String scoreText3,
     required String scoreDescription1,
     required String scoreDescription2,
     required String scoreDescription3,
@@ -50,6 +51,15 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
         const SizedBox(height: 5),
+        Text(
+          scoreText3,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 17,
+          ),
+        ),
+        const SizedBox(height: 10),
         Text(
           scoreDescription1,
           textAlign: TextAlign.center,
@@ -116,8 +126,8 @@ class _MainScreenState extends State<MainScreen> {
     }
 
     final bcs = int.tryParse(value);
-    if (bcs == null || bcs < 1 || bcs > 9) {
-      return 'BCS 점수는 1부터 9까지 입력 가능합니다';
+    if (bcs == null || bcs < 5 || bcs > 40) {
+      return 'BCS 점수는 5부터 40까지 입력 가능합니다';
     }
 
     return null; // 유효성 검사 통과
@@ -249,9 +259,9 @@ class _MainScreenState extends State<MainScreen> {
                                               imageAsset:
                                                   'assets/cat_image1.1_rate.png',
                                               scoreText:
-                                                  '매우 마른 단계 (BCS 1 ~ 2 점)',
-                                              scoreText2:
-                                                  '매우 마른 단계 (BCS 1 ~ 2 점)',
+                                                  '매우 마른 단계 (BCS 1 ~ 2 등급)',
+                                              scoreText2: '체지방 비율 1등급 : 5점 이하',
+                                              scoreText3: '체지방 비율 2등급 : 5점 이하',
                                               scoreDescription1:
                                                   '육안으로 보았을 때 갈비뼈, 등뼈, 엉덩이뼈가',
                                               scoreDescription2:
@@ -264,9 +274,11 @@ class _MainScreenState extends State<MainScreen> {
                                             _buildImageWithText(
                                               imageAsset:
                                                   'assets/cat_image1.2_rate.png',
-                                              scoreText: '저체중 단계 (BCS 3 ~ 4 점)',
+                                              scoreText:
+                                                  '저체중 단계 (BCS 3 ~ 4 등급)',
                                               scoreText2:
-                                                  '매우 마른 단계 (BCS 1 ~ 2 점)',
+                                                  '체지방 비율 BCS 3등급 : 10점',
+                                              scoreText3: '체지방 비율 4등급 : 15점',
                                               scoreDescription1:
                                                   '최소한의 지방이 있으며 갈비뼈, 등뼈가',
                                               scoreDescription2:
@@ -279,9 +291,10 @@ class _MainScreenState extends State<MainScreen> {
                                             _buildImageWithText(
                                               imageAsset:
                                                   'assets/cat_image1.33_rate.png',
-                                              scoreText: '이상적인 단계 (BCS 5 점)',
+                                              scoreText: '이상적인 단계 (BCS 5 등급)',
                                               scoreText2:
-                                                  '매우 마른 단계 (BCS 1 ~ 2 점)',
+                                                  '체지방 비율 BCS 5등급 : 20점',
+                                              scoreText3: '',
                                               scoreDescription1:
                                                   '눈으로 보았을때 뼈가 잘 보이지 않지만',
                                               scoreDescription2:
@@ -294,9 +307,10 @@ class _MainScreenState extends State<MainScreen> {
                                             _buildImageWithText(
                                               imageAsset:
                                                   'assets/cat_image1.4_rate.png',
-                                              scoreText: '과체중 단계 (BCS 6 ~ 7 점)',
-                                              scoreText2:
-                                                  '매우 마른 단계 (BCS 1 ~ 2 점)',
+                                              scoreText:
+                                                  '과체중 단계 (BCS 6 ~ 7 등급)',
+                                              scoreText2: '체지방 비율 6등급 : 25점',
+                                              scoreText3: '체지방 비율 7등급 : 30점',
                                               scoreDescription1:
                                                   '두꺼운 지방으로 덮혀 있어 뼈가 보이지 않고',
                                               scoreDescription2:
@@ -309,9 +323,9 @@ class _MainScreenState extends State<MainScreen> {
                                             _buildImageWithText(
                                               imageAsset:
                                                   'assets/cat_image1.55_rate.png',
-                                              scoreText: '비만 단계 (BCS 8 ~ 9 점)',
-                                              scoreText2:
-                                                  '매우 마른 단계 (BCS 1 ~ 2 점)',
+                                              scoreText: '비만 단계 (BCS 8 ~ 9 등급)',
+                                              scoreText2: '체지방 비율 8등급 : 35점',
+                                              scoreText3: '체지방 비율 9등급 : 40점 이상',
                                               scoreDescription1:
                                                   '심각한 지방층이 덮여 있어서 등뼈와 갈비뼈가',
                                               scoreDescription2:
@@ -401,7 +415,7 @@ class _MainScreenState extends State<MainScreen> {
                                   builder: (context) => LoadingScreen(
                                     weight:
                                         double.parse(_weightController.text),
-                                    bcs: double.parse(_bcsController.text),
+                                    bcs: int.parse(_bcsController.text),
                                   ),
                                 ),
                               );
