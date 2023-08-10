@@ -22,10 +22,18 @@ class _LoadingScreenState extends State<LoadingScreen> {
     return widget.weight * (100 - widget.bcs) / 100;
   }
 
+  bool animationStarted = false; //
+
   @override
   void initState() {
     super.initState();
-    // 2초 뒤에 결과 화면으로 이동
+
+    Timer(const Duration(milliseconds: 500), () {
+      setState(() {
+        animationStarted = true;
+      });
+    });
+
     Timer(const Duration(seconds: 2), () {
       final double ibw = _calcIbw();
       Navigator.pushReplacement(
@@ -45,10 +53,17 @@ class _LoadingScreenState extends State<LoadingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Lottie.asset(
-          'assets/lottie/animal_cat.json',
-          width: 300,
-          height: 300,
+        child: Stack(
+          //
+          alignment: Alignment.center,
+          children: [
+            if (animationStarted) //
+              Lottie.asset(
+                'assets/lottie/animal_cat.json',
+                width: 300,
+                height: 300,
+              ),
+          ],
         ),
       ),
     );

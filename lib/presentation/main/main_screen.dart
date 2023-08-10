@@ -181,8 +181,8 @@ class _MainScreenState extends State<MainScreen> {
                         borderSide: BorderSide(color: Colors.grey),
                       ),
                       focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blueAccent)),
-                      hintText: '현재 체중 kg',
+                          borderSide: BorderSide(color: Colors.orange)),
+                      hintText: '현재 체중을 입력해주세요.',
                     ),
                     keyboardType: TextInputType.number,
                     validator: (value) {
@@ -204,8 +204,8 @@ class _MainScreenState extends State<MainScreen> {
                         borderSide: BorderSide(color: Colors.grey),
                       ),
                       focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blueAccent)),
-                      hintText: 'BCS 점수',
+                          borderSide: BorderSide(color: Colors.orange)),
+                      hintText: 'BCS 점수를 입력해주세요.',
                     ),
                     keyboardType: TextInputType.number,
                     validator: _validateBcs,
@@ -273,7 +273,7 @@ class _MainScreenState extends State<MainScreen> {
                                             ),
                                             _buildImageWithText(
                                               imageAsset:
-                                                  'assets/cat_image1.2_rate.png',
+                                                  'assets/cat_image1.222_rate.png',
                                               scoreText:
                                                   '저체중 단계 (BCS 3 ~ 4 등급)',
                                               scoreText2:
@@ -344,7 +344,7 @@ class _MainScreenState extends State<MainScreen> {
                                           Navigator.of(context).pop();
                                         },
                                         style: ElevatedButton.styleFrom(
-                                          backgroundColor: Colors.blueAccent,
+                                          backgroundColor: Colors.orangeAccent,
                                           //
                                         ),
                                         child: const Text(
@@ -365,7 +365,7 @@ class _MainScreenState extends State<MainScreen> {
                           );
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blueAccent, // 버튼 배경색상 변경
+                          backgroundColor: Colors.orangeAccent, // 버튼 배경색상 변경
                         ),
                         child: const Text(
                           'BCS 점수 측정법',
@@ -382,7 +382,7 @@ class _MainScreenState extends State<MainScreen> {
                                 _resetFields, // _resetFields() 메서드를 호출하도록 변경
                             style: ElevatedButton.styleFrom(
                               padding: EdgeInsets.zero,
-                              backgroundColor: Colors.blueAccent,
+                              backgroundColor: Colors.orangeAccent,
                             ),
                             child: Center(
                               child: GestureDetector(
@@ -421,7 +421,7 @@ class _MainScreenState extends State<MainScreen> {
                               );
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.orangeAccent, // 배경색 설정
+                              backgroundColor: Colors.blueAccent, // 배경색 설정
                             ),
                             child: const Hero(
                               tag: 'result_button_tag',

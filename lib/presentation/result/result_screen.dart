@@ -55,72 +55,74 @@ class ResultScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            child: SizedBox(
-              width: double.infinity,
-              height: 380.0,
-              child: Image.asset(
-                'assets/cat_image_head4.png',
-                fit: BoxFit.fill,
+      body: SafeArea(
+        child: Stack(
+          children: [
+            SingleChildScrollView(
+              child: SizedBox(
+                width: double.infinity,
+                height: 380.0,
+                child: Image.asset(
+                  'assets/cat_image_head4.png',
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
-          ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(height: 200), // 추가된 부분, AppBar 높이만큼 여백 추가
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '체중 상태 : $weightStatus',
-                      style: const TextStyle(fontSize: 25),
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      '현재 체중 : $weight kg',
-                      style: const TextStyle(fontSize: 25),
-                    ),
-                    // 추가된 부분, 체중 상태 표시
-                    const SizedBox(width: 16), // 현재 체중과 표준 체중 사이 간격
-                    Text(
-                      '표준 체중 : ${ibw.toStringAsFixed(1)} kg',
-                      style: const TextStyle(fontSize: 25),
-                    ),
-                  ],
-                ),
-
-                imageWidget,
-
-                Container(
-                  width: 100, //
-                  child: Column(
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 200), // 추가된 부분, AppBar 높이만큼 여백 추가
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      //
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.blueAccent, // 배경색상 설정
-                          shape: BoxShape.circle, //
-                        ),
-                        child: IconButton(
-                          icon: const Icon(Icons.home),
-                          color: Colors.white, // 아이콘 색상 설정
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                        ),
+                      Text(
+                        '체중 상태 : $weightStatus',
+                        style: const TextStyle(fontSize: 25),
                       ),
-                      const SizedBox(height: 8), // 아이콘과 이미지 사이 간격
+                      const SizedBox(height: 20),
+                      Text(
+                        '현재 체중 : $weight kg',
+                        style: const TextStyle(fontSize: 25),
+                      ),
+                      // 추가된 부분, 체중 상태 표시
+                      const SizedBox(width: 16), // 현재 체중과 표준 체중 사이 간격
+                      Text(
+                        '표준 체중 : ${ibw.toStringAsFixed(1)} kg',
+                        style: const TextStyle(fontSize: 25),
+                      ),
                     ],
                   ),
-                ),
-              ],
+
+                  imageWidget,
+
+                  Container(
+                    width: 100, //
+                    child: Column(
+                      children: [
+                        //
+                        Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.orangeAccent, // 배경색상 설정
+                            shape: BoxShape.circle, //
+                          ),
+                          child: IconButton(
+                            icon: const Icon(Icons.home),
+                            color: Colors.white, // 아이콘 색상 설정
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ),
+                        const SizedBox(height: 8), // 아이콘과 이미지 사이 간격
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
