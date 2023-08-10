@@ -175,6 +175,7 @@ class _MainScreenState extends State<MainScreen> {
                 children: [
                   const SizedBox(height: 60),
                   TextFormField(
+                    autofocus: true,
                     controller: _weightController,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(
