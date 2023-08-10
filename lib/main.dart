@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 import 'presentation/main/main_screen.dart';
 
@@ -23,7 +24,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _loadData() async {
-    await Future.delayed(const Duration(seconds: 5)); // 2초간 로딩 시뮬레이션
+    await Future.delayed(const Duration(seconds: 5)); //
     setState(() {
       _isLoading = false;
     });
@@ -31,6 +32,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -40,7 +42,6 @@ class _MyAppState extends State<MyApp> {
       home: _isLoading
           ? Scaffold(
               body: Center(
-                // 로딩 화면에 Lottie 애니메이션 추가
                 child: Lottie.asset(
                   'assets/lottie/animal_cat.json',
                   width: 300,
@@ -48,7 +49,7 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
             )
-          : const MainScreen(), // 로딩이 끝나면 MainScreen으로 이동
+          : const MainScreen(), //
     );
   }
 }

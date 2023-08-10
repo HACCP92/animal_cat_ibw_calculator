@@ -34,6 +34,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
           builder: (context) => ResultScreen(
             weight: widget.weight,
             bcs: widget.bcs,
+            ibw: ibw,
           ),
         ),
       );

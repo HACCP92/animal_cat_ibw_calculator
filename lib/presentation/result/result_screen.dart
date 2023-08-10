@@ -8,6 +8,7 @@ class ResultScreen extends StatelessWidget {
     Key? key,
     required this.weight,
     required this.bcs,
+    required double ibw,
   }) : super(key: key);
 
   double _calcIbw() {
@@ -59,9 +60,9 @@ class ResultScreen extends StatelessWidget {
           SingleChildScrollView(
             child: SizedBox(
               width: double.infinity,
-              height: 600.0,
+              height: 380.0,
               child: Image.asset(
-                'assets/cat_head.png',
+                'assets/cat_image_head4.png',
                 fit: BoxFit.fill,
               ),
             ),
@@ -70,7 +71,7 @@ class ResultScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 100), // 추가된 부분, AppBar 높이만큼 여백 추가
+                const SizedBox(height: 200), // 추가된 부분, AppBar 높이만큼 여백 추가
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

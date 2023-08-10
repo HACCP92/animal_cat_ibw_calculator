@@ -73,6 +73,7 @@ flutter:
     - assets/cat_image1.33_rate.png
     - assets/cat_image1.4_rate.png
     - assets/cat_image1.55_rate.png
+    -
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

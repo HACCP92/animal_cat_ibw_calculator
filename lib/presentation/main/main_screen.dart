@@ -158,9 +158,9 @@ class _MainScreenState extends State<MainScreen> {
           SingleChildScrollView(
             child: SizedBox(
               width: double.infinity,
-              height: 600.0,
+              height: 380.0,
               child: Image.asset(
-                'assets/cat_head.png',
+                'assets/cat_image_head4.png',
                 fit: BoxFit.fill,
               ),
             ),
